@@ -1,35 +1,24 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class Main {
+public class Factorial {
+    public static long factorial(int n) {
+        if (n < 1 || n > 10) return 0;  // Si le nombre n'est pas entre 1 et 10, retourner 0
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long n = sc.nextLong();
-        
-        // Vérification de la contrainte sur n
-        if (n < 1 || n > 2000000) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Entrez un nombre entre 1 et 10 : ");
+        int num = scanner.nextInt();
+
+        long fact = factorial(num);
+        if (fact == 0)
             System.out.println(0);
-            return;
-        }
-        
-        long[] list1 = new long[(int)n];
-        for (int i = 0; i < n; i++) {
-            list1[i] = sc.nextLong();
-            if (list1[i] < 1 || list1[i] > 1000000000000000L) {
-                System.out.println(0);
-                return;
-            }
-        }
-
-        // Utilisation d'une HashMap pour compter les occurrences
-        Map<Long, Integer> freq = new HashMap<>();
-        for (long num : list1) {
-            freq.put(num, freq.getOrDefault(num, 0) + 1);
-        }
-
-        // Trouver la fréquence maximale et le nombre d'éléments avec cette fréquence
-        int maxi = Collections.max(freq.values());
-        long nbr = freq.values().stream().filter(count -> count == maxi).count();
-        
-        System.out.println(nbr);
+        else
+            System.out.println("Factorielle de " + num + " : " + fact);
     }
 }

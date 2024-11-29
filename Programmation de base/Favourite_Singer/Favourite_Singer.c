@@ -1,49 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+long long factorial(int n) {
+    if (n < 1 || n > 10) return 0;  // Si le nombre n'est pas entre 1 et 10, retourner 0
+    long long result = 1;
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
 
 int main() {
-    long long n;
-    scanf("%lld", &n);
+    int num;
+    printf("Entrez un nombre entre 1 et 10 : ");
+    scanf("%d", &num);
     
-    // Vérification de la contrainte sur n
-    if (n < 1 || n > 2000000) {
+    long long fact = factorial(num);
+    if (fact == 0)
         printf("0\n");
-        return 0;
-    }
-    
-    long long *list1 = malloc(n * sizeof(long long));
-    if (!list1) {
-        printf("0\n");
-        return 0;
-    }
+    else
+        printf("Factorielle de %d : %lld\n", num, fact);
 
-    for (long long i = 0; i < n; i++) {
-        scanf("%lld", &list1[i]);
-        if (list1[i] < 1 || list1[i] > 1000000000000000) {
-            printf("0\n");
-            free(list1);
-            return 0;
-        }
-    }
-
-    // Compter les occurrences avec un tableau de fréquence
-    long long freq[2000000] = {0}; // Si n <= 2000000
-    for (long long i = 0; i < n; i++) {
-        freq[list1[i]]++;
-    }
-
-    // Trouver la fréquence maximale et le nombre d'éléments avec cette fréquence
-    long long maxi = 0, nbr = 0;
-    for (long long i = 0; i < n; i++) {
-        if (freq[list1[i]] > maxi) {
-            maxi = freq[list1[i]];
-            nbr = 1;
-        } else if (freq[list1[i]] == maxi) {
-            nbr++;
-        }
-    }
-
-    printf("%lld\n", nbr);
-    free(list1);
     return 0;
 }

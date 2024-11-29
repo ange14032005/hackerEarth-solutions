@@ -1,16 +1,44 @@
 # Favourite Singer
 
-# Compter les Occurrences Maximales
+# Test de Performance des Implémentations de la Fonction Factorielle
 
-Ce programme prend une liste d'entiers et compte combien d'éléments apparaissent le plus souvent. La solution est optimisée pour fonctionner efficacement même avec de grandes tailles de données.
+## Objectif
+Comparer les performances des trois implémentations de la fonction factorielle (en termes de temps et de mémoire) pour les langages **C**, **Python**, et **Java**. Le test consistera à calculer la factorielle d'un nombre entier compris entre 1 et 10.
 
-## Problème
+## Implémentations
+### Langage : **C**
+- **Approche utilisée :** Itérative
+- **Code :** Voir la section ci-dessous.
+- **Complexité attendue :** O(n) pour le calcul de la factorielle, où `n` est le nombre donné en entrée.
 
-- Vous devez entrer un nombre `n` représentant la taille de la liste d'entiers.
-- Ensuite, vous devez entrer une liste d'entiers et vérifier plusieurs conditions :
-  1. `n` doit être compris entre 1 et 2,000,000.
-  2. Chaque élément de la liste doit être compris entre 1 et 10^15.
-  3. La liste doit contenir exactement `n` éléments.
-- Le but est de trouver l'élément (ou les éléments) qui apparaissent le plus souvent et de compter combien d'éléments ont cette fréquence maximale.
+### Langage : **Python**
+- **Approche utilisée :** Itérative
+- **Code :** Voir la section ci-dessous.
+- **Complexité attendue :** O(n) pour le calcul de la factorielle, où `n` est le nombre donné en entrée.
 
-Si une des conditions n'est pas remplie, le programme doit afficher `0`.
+### Langage : **Java**
+- **Approche utilisée :** Itérative
+- **Code :** Voir la section ci-dessous.
+- **Complexité attendue :** O(n) pour le calcul de la factorielle, où `n` est le nombre donné en entrée.
+---
+
+## Scénarios de Test
+1. **Entrée :** Nombre entre 1 et 10
+   - **Attendu :** Calcul de la factorielle de `n`.
+   - **Cas limite :** 1, 10
+   - **Cas d'erreur :** Si `n` est inférieur à 1 ou supérieur à 10, le résultat doit être 0.
+
+---
+
+## Mesure des Performances
+Pour chaque langage, mesurer les critères suivants :
+1. **Temps d'exécution** pour calculer la factorielle (en secondes).
+2. **Utilisation de la mémoire** pendant l'exécution.
+   - Si possible, utilisez un outil ou une bibliothèque pour suivre la mémoire utilisée pendant l'exécution du calcul.
+
+---
+
+## Résultats Attendues
+- **C** devrait être le plus rapide et le plus économe en mémoire en raison de la compilation directe en code machine.
+- **Java** devrait être plus lent que C mais plus rapide que Python, car Java utilise la JVM.
+- **Python** devrait être le plus lent des trois, étant donné que Python est un langage interprété et plus abstrait.
