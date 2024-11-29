@@ -1,5 +1,7 @@
 # Factorielle
 
+# Factorielle
+
 # Compter les Occurrences Maximales
 
 Ce programme prend une liste d'entiers et compte combien d'éléments apparaissent le plus souvent. La solution est optimisée pour fonctionner efficacement même avec de grandes tailles de données.
